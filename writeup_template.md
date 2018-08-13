@@ -21,13 +21,13 @@ The goals / steps of this project are the following:
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. Describe your pipeline. 
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
+My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I use gaussian_blur() function to smooth the image, after that I use canny() function to detect the edges, then I use Hough transfrom to find the lane lines, finally I plot the lane line on the original figure. 
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+In order to draw a single line on the left and right lanes, I wrote a function called cluster_lines_for_lanes() to first find the slope of left and right lines, then extrapolate line segments to the full extent of the lane. 
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+If you'd like to include images to show how the pipeline works, just pass the input folder name, image name and output folder name to function lane_finding_algorithm().
 
 ![alt text][image1]
 
@@ -35,13 +35,9 @@ If you'd like to include images to show how the pipeline works, here is how to i
 ### 2. Identify potential shortcomings with your current pipeline
 
 
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
+One potential shortcoming is that we hardcoded the parameters of Region Of Interest (ROI). When ROI changes, the algorithm will fail.  
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+A possible improvement would be use more advanced computer vision techniques to dynamically find ROI. 
